@@ -23,11 +23,18 @@ public class Startup {
  
     public static void main(String[] args) {
         
-        TipCalculator waiter = new FoodServiceTipCalculator(ServiceQuality.GOOD, 100);
+        double bill = 100;
+        
+        
+        TipCalculator waiter = new FoodServiceTipCalculator(ServiceQuality.GOOD, bill);
         TipCalculator bagger = new BaggageServiceTipCalculator(ServiceQuality.FAIR,10);
         
         TipService tip = new TipService();
-        System.out.println(tip.calculateTip(waiter));
+        
+        double tipAmt = tip.calculateTip(waiter);
+        
+        System.out.println("Tip amount: $" + tipAmt);
+        System.out.println("Your total amount due: $" + (tipAmt + bill));
         
     }
 
